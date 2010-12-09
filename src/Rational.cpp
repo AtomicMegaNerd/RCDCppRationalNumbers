@@ -23,7 +23,7 @@ void Rational::reduce() {
 	}
 }
 
-inline const Rational reciprocal(const Rational& r) {
+const Rational reciprocal(const Rational& r) {
 	return Rational(r.denominator(), r.numerator());
 }
 

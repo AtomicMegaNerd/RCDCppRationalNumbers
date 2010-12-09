@@ -43,6 +43,9 @@ private:
 	int numer;
 	int denom;
 
+	/*
+	 * This function returns a nice string representation of a rational number.
+	 */
 	void reduce();
 };
 
@@ -64,18 +67,6 @@ inline int gcd(int x, int y) {
 inline int lcm(int x, int y) {
 	return (x * y) / gcd(x, y);
 }
-
-/*
- * This function returns a nice string representation of a rational number.
- */
-const std::string Rational::to_str();
-
-/*
- * This function will reduce our fraction, even eliminating the denominator
- * if it is not needed.  If both the numerator and denominator are negative, it
- * will flip the sign for us as well.
- */
-inline void Rational::reduce();
 
 /*
  * The reciprocal of a rational number A/B = B/A.
