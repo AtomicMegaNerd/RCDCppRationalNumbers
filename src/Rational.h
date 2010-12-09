@@ -36,8 +36,8 @@ public:
 	}
 
 	const std::string to_str() const;
-	const int get_numer() const { return numer; }
-	const int get_denom() const { return denom; }
+	const int numerator() const { return numer; }
+	const int denominator() const { return denom; }
 
 private:
 	int numer;
@@ -98,7 +98,7 @@ inline void Rational::reduce() {
  * The reciprocal of a rational number A/B = B/A.
  */
 inline const Rational reciprocal(const Rational& r) {
-	return Rational(r.get_denom(), r.get_numer());
+	return Rational(r.denominator(), r.numerator());
 }
 
 /*
@@ -113,20 +113,20 @@ inline std::ostream& operator<<(std::ostream& out, const Rational& r) {
  */
 
 inline const Rational operator+(const Rational& lhs, const Rational& rhs) {
-	int l = lcm(lhs.get_denom(), rhs.get_denom());
-	return Rational((lhs.get_numer() * l / lhs.get_denom()) + (rhs.get_numer()
-			* l / rhs.get_denom()), l);
+	int l = lcm(lhs.denominator(), rhs.denominator());
+	return Rational((lhs.numerator() * l / lhs.denominator()) + (rhs.numerator()
+			* l / rhs.denominator()), l);
 }
 
 inline const Rational operator-(const Rational& lhs, const Rational& rhs) {
-	int l = lcm(lhs.get_denom(), rhs.get_denom());
-	return Rational((lhs.get_numer() * l / lhs.get_denom()) - (rhs.get_numer()
-			* l / rhs.get_denom()), l);
+	int l = lcm(lhs.denominator(), rhs.denominator());
+	return Rational((lhs.numerator() * l / lhs.denominator()) - (rhs.numerator()
+			* l / rhs.denominator()), l);
 }
 
 inline const Rational operator*(const Rational& lhs, const Rational& rhs) {
-	return Rational(lhs.get_numer() * rhs.get_numer(), lhs.get_denom()
-			* rhs.get_denom());
+	return Rational(lhs.numerator() * rhs.numerator(), lhs.denominator()
+			* rhs.denominator());
 }
 
 inline const Rational operator/(const Rational& lhs, const Rational& rhs) {
